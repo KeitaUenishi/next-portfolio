@@ -2,6 +2,7 @@ import Head from 'next/head'
 import styles from 'styles/Home.module.css'
 
 import { Button } from 'components/atoms/Button'
+import { Text } from 'components/atoms/Text'
 
 export default function Home() {
   return (
@@ -41,6 +42,11 @@ export default function Home() {
             >
               Secondary
             </Button>
+          </div>
+          <div>
+            <Text textType='primary'>
+              てきすと
+            </Text>
           </div>
         </div>
       </main>
