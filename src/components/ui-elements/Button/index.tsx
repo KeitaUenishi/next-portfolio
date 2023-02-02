@@ -10,42 +10,19 @@ type Map = {
 const ColorSetting: Map[] = [
   {
     key: 'primary',
-    class: [
-      'text-white',
-      'bg-blue-500',
-      'hover:bg-indigo-700',
-      'focus:ring-indigo-500',
-      'border-transparent',
-      'primary-button',
-    ],
+    class: ['btn-info', 'text-white', 'border-transparent'],
   },
   {
     key: 'secondary',
-    class: [
-      'text-white',
-      'bg-green-500',
-      'hover:bg-indigo-700',
-      'focus:ring-indigo-500',
-      'border-transparent',
-      'primary-button',
-    ],
+    class: ['btn-success', 'text-white', 'border-transparent'],
   },
   {
     key: 'danger',
-    class: [
-      'text-white',
-      'bg-red-500',
-      'hover:bg-indigo-700',
-      'focus:ring-indigo-500',
-      'border-transparent',
-      'primary-button',
-    ],
+    class: ['btn-error', 'text-white', 'border-transparent'],
   },
 ]
 
-const SizeSetting: Map[] = [
-  { key: 'small', class: ['py-2', 'px-4', 'text-sm'] },
-]
+const SizeSetting: Map[] = [{ key: 'small', class: ['py-2', 'px-4', 'text-sm'] }]
 
 type Props = {
   children: React.ReactNode
@@ -67,22 +44,16 @@ export const Button: React.FC<Props> = ({
   onClick,
 }) => {
   const _color = _.head(
-    ColorSetting.filter((map: Map) => map.key === color).map(
-      (map) => map.class
-    )
+    ColorSetting.filter((map: Map) => map.key === color).map((map) => map.class),
   )
 
-  const _size = _.head(
-    SizeSetting.filter((map: Map) => map.key === size).map(
-      (map) => map.class
-    )
-  )
+  const _size = _.head(SizeSetting.filter((map: Map) => map.key === size).map((map) => map.class))
 
   if (!_color) {
     console.error('color is not defined.')
     return null
   }
-  
+
   if (!_size) {
     console.error('size is not defined.')
     return null
@@ -110,7 +81,7 @@ export const Button: React.FC<Props> = ({
   return (
     <button
       className={`${className} ${fullWidth ? 'w-full' : ''} 
-      ${ disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
+      ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
       onClick={handleSubmit}
     >
       {children}

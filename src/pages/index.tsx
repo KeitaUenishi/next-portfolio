@@ -1,8 +1,20 @@
 import Head from 'next/head'
 import styles from 'styles/Home.module.css'
 
-import { Button } from 'components/atoms/Button'
-import { Text } from 'components/atoms/Text'
+import { Button } from 'components/ui-elements/Button'
+import { Text } from 'components/ui-elements/Text'
+import { Breadcrumbs } from 'components/Breadcrumbs'
+
+import { Card } from 'components/Card'
+import { Header } from 'components/layouts/Header'
+import { Hero } from 'components/layouts/Hero'
+import { Footer } from 'components/layouts/Footer'
+
+const headerItems = [
+  { title: 'Top', url: '/' },
+  { title: 'Blog', url: '/' },
+  { title: 'Contact', url: '/' },
+]
 
 export default function Home() {
   return (
@@ -13,43 +25,42 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <h1 className="text-3xl font-bold underline">Hello world!</h1>
-          <div>
-            <Button
-              color='primary'
-              fullWidth={true}
-              disabled={false}
-            >
-              Primary
-            </Button>
+      <div className="bg-gray-900">
+        <header>
+          <Header headerItems={headerItems} />
+        </header>
+        <main className={styles.main}>
+          <Hero />
+          <div className={styles.description}>
+            <h1 className="text-3xl font-bold underline">Hello world!</h1>
+            <div>
+              <Breadcrumbs />
+            </div>
+            <div>
+              <Button color="primary" fullWidth={true} disabled={false}>
+                Primary
+              </Button>
+            </div>
+            <div>
+              <Button color="secondary" fullWidth={true} disabled={false}>
+                Secondary
+              </Button>
+            </div>
+            <div>
+              <Button color="danger" fullWidth={true} disabled={false}>
+                Secondary
+              </Button>
+            </div>
+            <div>
+              <Text textType="primary">てきすと</Text>
+            </div>
           </div>
-          <div>
-            <Button
-              color='secondary'
-              fullWidth={true}
-              disabled={false}
-            >
-              Secondary
-            </Button>
-          </div>
-          <div>
-            <Button
-              color='danger'
-              fullWidth={true}
-              disabled={false}
-            >
-              Secondary
-            </Button>
-          </div>
-          <div>
-            <Text textType='primary'>
-              てきすと
-            </Text>
-          </div>
-        </div>
-      </main>
+          <Card />
+        </main>
+        <footer>
+          <Footer />
+        </footer>
+      </div>
     </>
   )
 }
