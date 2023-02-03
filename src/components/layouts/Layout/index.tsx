@@ -9,8 +9,9 @@ type Props = {
   children: React.ReactNode
 }
 
-const headerItems = [
+const linkItems = [
   { title: 'Top', url: '/' },
+  { title: 'Tags', url: '/tags' },
   { title: 'Profile', url: '/profile' },
   { title: 'Contact', url: '/contact' },
 ]
@@ -26,11 +27,11 @@ export const Layout: React.FC<Props> = ({ children }) => {
       </Head>
       <div className="bg-gray-900">
         <header>
-          <Header headerItems={headerItems} />
+          <Header headerItems={linkItems} />
         </header>
         <main className={styles.main}>{children}</main>
         <footer>
-          <Footer />
+          <Footer footerLinks={linkItems} />
         </footer>
       </div>
     </>

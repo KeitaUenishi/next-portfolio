@@ -1,6 +1,8 @@
 import React from 'react'
 
-export const Hero = () => {
+export const Hero: React.FC = () => {
+  const startYear = 2021
+  const year = new Date().getFullYear() - startYear
   return (
     <div
       className="hero min-h-screen"
@@ -13,7 +15,7 @@ export const Hero = () => {
           <p className="mb-5 text-white">
             大阪に生息しているプログラマー。
             <br />
-            2021年5月から大阪のITベンチャーで勤務し、現在2年目。
+            {startYear}年5月から大阪のITベンチャーで勤務し、現在{year}年目。
             <br />
             主にReactやTypeScriptでWeb開発を行なっています。
           </p>
